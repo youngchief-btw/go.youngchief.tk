@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GO!</title>
+    <style>
+      * {
+        font-family: sans-serif;
+        background-color: black;
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>go.youngchief.tk</h1>
+      <h2>YoungChief's Smart Redirect System</h2>
+    </center>
+    <script>
+      // HTTP --> HTTPS
+      if (location.protocol === "http:") {
+        redirectTo(window.location.href.replace("http:", "https:"));
+      }
+
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(
+          /[?&]+([^=&]+)=([^&]*)/gi,
+          function (m, key, value) {
+            vars[key] = value;
+          }
+        );
+        return vars;
+      }
+      // getUrlVars()["x"];
+
+      function redirectTo(url) {
+        location.replace(url);
+      }
+
+      const goToURL = getUrlVars()["url"] ?? "/";
+
+      if (goToURL !== null) {
+        if (goToURL === "Discord/Server") {
+          redirectTo("https://discord.gg/myuyJqH");
+        } else if (goToURL === "BitLaunch") {
+          redirectTo("https://bitlaunch.io/?offer_id=1&aff_id=1064");
+        } else if (goToURL === "GitHub/Profile") {
+          redirectTo("https://github.com/youngchief-btw");
+        } else if (goToURL.startsWith("GitHub/Project/") === true) {
+          const newGoToURL = goToURL.replace(
+            "GitHub/Project/",
+            "https://github.com/youngchief-btw/"
+          );
+          redirectTo(newGoToURL);
+        } else if (goToURL === "Honey") {
+          redirectTo("https://joinhoney.com/ref/ynpb87z");
+        } else {
+          redirectTo(goToURL);
+        }
+      }
+    </script>
+  </body>
+</html>
