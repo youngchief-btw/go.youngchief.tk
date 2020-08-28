@@ -17,7 +17,7 @@
     </center>
     <script>
       // HTTP --> HTTPS
-      if (location.protocol === "http:") {
+      if (location.protocol !== "http:") {
         redirectTo(window.location.href.replace("http:", "https:"));
       }
 
