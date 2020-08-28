@@ -37,7 +37,7 @@
         location.replace(url);
       }
 
-      const goToURL = getUrlVars()["url"] ?? "/";
+      const goToURL = getUrlVars()["url"] ?? location.href;
 
       if (goToURL !== null) {
         if (goToURL === "Discord/Server") {
